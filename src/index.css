@@ -17,5 +17,13 @@ code {
 #personImage{
   width:auto ;
   height:300px;
+  
 
+}
+#spinnerDiv{
+  height:30px;
+}
+#personImageDiv{
+  height:300px;
+  padding-bottom: 30px;
 }
