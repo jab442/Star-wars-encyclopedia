@@ -33,19 +33,18 @@ class App extends React.Component<{ appState: State }, {}> {
           .then(res2 => res2.json())
           .then(res2 => {
             try {
-              this.props.appState.isLoading = false;
               this.props.appState.imgURL = res2.query.pages[0].original.source             
             }
             catch (e) {
               this.props.appState.imgURL = "https://upload.wikimedia.org/wikipedia/commons/6/6c/No_image_3x4.svg"
             }
           }).catch((e) => {
-            this.props.appState.isLoading = false;
             console.log(e);
           });
-      }).catch(e => {
-        this.props.appState.isLoading = false;
+      }).catch(e => {       
         console.log(e);
+      }).finally(()=>{
+        this.props.appState.isLoading = false;
       })
   }
 
