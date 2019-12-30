@@ -3,10 +3,16 @@ import IPerson from './IPerson';
 
 
 interface Props {
-    name:string
-  }
+  name: string
+  gender?: string
+}
 
-const PersonComponent: React.SFC<Props> = (props) => {
-    return <h1>Hello, {props.name}</h1>;
-   }
+const PersonComponent: React.SFC<IPerson> = (props) => {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <div>{(props.gender)?"Gender:" + props.gender:""}</div>
+    </div>
+  );
+}
 export default PersonComponent

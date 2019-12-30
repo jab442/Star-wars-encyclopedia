@@ -4,7 +4,6 @@ import './App.css';
 import IPerson from './IPerson'
 //import Person from './Person'
 import PersonComponent from './PersonComponent'
-import { observable, action, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import State from './State'
 
@@ -23,14 +22,13 @@ class App extends React.Component<{ appState: State }, {}> {
       }
     }
   */
-  @computed get name() {
-    // correct; computed property will track the `user.name` property
-    console.log("person " + this.props.appState.person)
-    return this.props.appState.person
-  }
+
   incrementFetchPerson() {
     this.props.appState.incrementPersonCount();
-    debugger;
+    this.fetchPerson();
+  }
+  decrementFetchPerson(){
+    this.props.appState.decrementPersonCount();
     this.fetchPerson();
   }
   fetchPerson() {
@@ -44,9 +42,6 @@ class App extends React.Component<{ appState: State }, {}> {
         fetch(res2)
           .then(res => res.json())
           .then(response => {
-            //console.log(response.query.pages[0].original.source);
-            //.query.pages[0].original.
-            console.log("img function" + this.props.appState.setImgURL);
             try{
               this.props.appState.imgURL = response.query.pages[0].original.source
             }
@@ -75,12 +70,16 @@ class App extends React.Component<{ appState: State }, {}> {
     this.fetchPerson();
   }
   render() {
+    const decrementClass:string=(this.props.appState.personNumber >=2)?"":"hidden";
     return (
       <div className="App">
         <header className="App-header">
-          <PersonComponent name={this.name.name} />
+          <PersonComponent name={this.props.appState.person.name} gender={this.props.appState.person.gender}/>
           <div>
             <img src={this.props.appState.imgURL} alt={"loading image.."} />
+          </div>
+          <div className={decrementClass}>
+            {<button onClick={this.decrementFetchPerson.bind(this)}>Previous</button>}
           </div>
           <div>
             <button onClick={this.incrementFetchPerson.bind(this)}>Next</button>
@@ -90,5 +89,6 @@ class App extends React.Component<{ appState: State }, {}> {
     );
   }
 }
+// gender={this.props.appState.person.gender} 
 //this.handleClick.bind(this)
 export default App;
