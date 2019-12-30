@@ -5,14 +5,13 @@ class State {
   @observable person: IPerson = { name: "" };
   @observable imgURL: string = "";
   @observable personNumber: number = 1;
+  @observable isLoading:boolean = false;
 
   @action setPerson(person: IPerson) {
-    console.log("person name" + person.name)
     this.person = person;
   }
   @action setImgURL(imgURL: string) {
     this.imgURL = imgURL;
-    console.log(imgURL);
   }
   @action incrementPersonCount() {
     this.personNumber++;
