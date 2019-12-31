@@ -53,43 +53,43 @@ class App extends React.Component<{ appState: State }, {}> {
   render() {
     const decrementClass: string = (this.props.appState.personNumber >= 2) ? "" : "hidden";
     return (
-      <div>
-        <Row>
-          <Col id="nameHeader">
+      <div id="outsideDiv">
+        <Row id="nameHeader">
+          <Col className="col-sm-11">
             <h1>{this.props.appState.person.name} </h1>
-            <div id="spinnerDiv">
+          </Col>
+          <Col className="col-sm-1">
               <PushSpinner size={30} color="#686769" loading={this.props.appState.isLoading} />
-            </div>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="col-sm-8">
             <div id="personImageDiv">
               <img id="personImage" src={this.props.appState.imgURL} />
             </div>
           </Col>
-          <Col>
-            <PersonComponent name={this.props.appState.person.name} 
-              gender={this.props.appState.person.gender} 
+          <Col className="col-sm-4">
+            <PersonComponent name={this.props.appState.person.name}
+              gender={this.props.appState.person.gender}
               hair_color={this.props.appState.person.hair_color}
               mass={this.props.appState.person.mass}
               height={this.props.appState.person.height}
               skin_color={this.props.appState.person.skin_color}
               eye_color={this.props.appState.person.eye_color}
               birth_year={this.props.appState.person.birth_year}
-              />
+            />
           </Col>
         </Row>
         <Row>
           <Col id="buttonFooter">
-              <span className={decrementClass}>
-                {<Button onClick={this.decrementFetchPerson.bind(this)}
-                  disabled={this.props.appState.isLoading}>Prev</Button>}
-              </span>
-              <span>
-                <Button onClick={this.incrementFetchPerson.bind(this)}
-                  disabled={this.props.appState.isLoading}>Next</Button>
-              </span>
+            <span className={decrementClass}>
+              {<Button onClick={this.decrementFetchPerson.bind(this)}
+                disabled={this.props.appState.isLoading}>Prev</Button>}
+            </span>
+            <span>
+              <Button onClick={this.incrementFetchPerson.bind(this)}
+                disabled={this.props.appState.isLoading}>Next</Button>
+            </span>
           </Col>
         </Row>
       </div>
