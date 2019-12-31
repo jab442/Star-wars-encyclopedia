@@ -7,7 +7,6 @@ export default interface IPerson {
     eye_color?:string;
     birth_year?:string;
     gender?:string;
-
  }
  
  

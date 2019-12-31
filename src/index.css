@@ -16,8 +16,8 @@ code {
 }
 #personImage{
   width:auto ;
-  height:300px;
-  
+  height:270px;
+
 
 }
 #spinnerDiv{
@@ -26,4 +26,7 @@ code {
 #personImageDiv{
   height:300px;
   padding-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+  display:flex;
 }
