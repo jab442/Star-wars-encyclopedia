@@ -13,6 +13,7 @@ const PersonComponent: React.SFC<IPerson> = (props) => {
       <div> <strong>Eye color: </strong>{props.eye_color}</div>
       <div> <strong>Skin color: </strong>{props.skin_color}</div>
       <div> <strong>Hair color: </strong>{props.hair_color}</div>
+      <div> <strong>Homeworld: </strong>{props.homeworldName}</div>
     </div>
   );
 }
