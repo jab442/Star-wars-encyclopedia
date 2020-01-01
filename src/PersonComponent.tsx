@@ -16,10 +16,22 @@ const PersonComponent: React.SFC<IPerson> = (props) => {
       <div> <strong>Homeworld: </strong>{props.homeworldName}</div>
       <div>
         <strong>Vehicles: </strong>
-        {(props.vehicleNames != null && props.vehicleNames.length > 0) ?(<ul>{
-          props.vehicleNames?.map((n, i) => <li key={i}>{n}</li>) 
-        }</ul>): "n/a"}
-        </div>
+        {(props.vehicleNames != null && props.vehicleNames.length > 0) ? (<ul>{
+          props.vehicleNames?.map((n, i) => <li key={i}>{n}</li>)
+        }</ul>) : "n/a"}
+      </div>
+      <div>
+        <strong>Starship names: </strong>
+        {(props.starshipNames != null && props.starshipNames.length > 0) ? (<ul>{
+          props.starshipNames?.map((n, i) => <li key={i}>{n}</li>)
+        }</ul>) : "n/a"}
+      </div>
+      <div>
+        <strong>Film names: </strong>
+        {(props.filmNames != null && props.filmNames.length > 0) ? (<ul>{
+          props.filmNames?.map((n, i) => <li key={i}>{n}</li>)
+        }</ul>) : "n/a"}
+      </div>
     </div>
   );
 }

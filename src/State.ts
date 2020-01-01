@@ -2,7 +2,11 @@ import IPerson from './IPerson';
 import { observable, action } from 'mobx';
 class State {
 
-  @observable person: IPerson = { name: "" };
+  @observable person: IPerson = { name: "" ,
+                                  vehicleNames:[],
+                                  starshipNames:[],
+                                  filmNames:[]
+                                };
   @observable imgURL: string = "";
   @observable personNumber: number = 1;
   @observable isLoading:boolean = false;

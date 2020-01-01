@@ -23,6 +23,7 @@ export default interface IPerson {
     filmNames?:string[];
     species?:string[];
     starships?:string[];
+    starshipNames?:string[];
     vehicles?:string[];
     vehicleNames?:string[];
  }
