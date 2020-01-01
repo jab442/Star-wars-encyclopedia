@@ -14,6 +14,12 @@ const PersonComponent: React.SFC<IPerson> = (props) => {
       <div> <strong>Skin color: </strong>{props.skin_color}</div>
       <div> <strong>Hair color: </strong>{props.hair_color}</div>
       <div> <strong>Homeworld: </strong>{props.homeworldName}</div>
+      <div>
+        <strong>Vehicles: </strong>
+        {(props.vehicleNames != null && props.vehicleNames.length > 0) ?(<ul>{
+          props.vehicleNames?.map((n, i) => <li key={i}>{n}</li>) 
+        }</ul>): "n/a"}
+        </div>
     </div>
   );
 }

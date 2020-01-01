@@ -19,7 +19,12 @@ export default interface IPerson {
     */
     homeworld?:string;
     homeworldName?:string;
+    films?:string[];
     filmNames?:string[];
+    species?:string[];
+    starships?:string[];
+    vehicles?:string[];
+    vehicleNames?:string[];
  }
  
  

@@ -54,6 +54,12 @@ class App extends React.Component<{ appState: State }, {}> {
             debugger;
           })
         }
+        if(p.vehicles){
+            
+            const attributeArray:string[] = p.vehicles;
+            this.extractNameAttributes(attributeArray, p);
+        }
+        
         //try get the main image of a star wars character from the wikipedia article using its api, include copywrited images
         //https://stackoverflow.com/questions/8363531/accessing-main-picture-of-wikipedia-page-by-api#20311613
         let res2 = encodeURI("https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&pilicense=any&titles=" + p.name)
@@ -71,6 +77,18 @@ class App extends React.Component<{ appState: State }, {}> {
       }).finally(() => {
         this.props.appState.isLoading = false;
       })
+  }
+
+  private extractNameAttributes(attributeArray: string[], p: IPerson) {
+    let vehicleNames: string[] = [];
+    attributeArray.map((v) => {
+      fetch(v).then(res => res.json())
+        .then(res => {
+          vehicleNames.push(res.name);
+        });
+    });
+    p.vehicleNames = vehicleNames;
+    this.props.appState.person = p;
   }
 
   fetchAtrributeName(url: string) {
@@ -112,6 +130,7 @@ class App extends React.Component<{ appState: State }, {}> {
               eye_color={this.props.appState.person.eye_color}
               birth_year={this.props.appState.person.birth_year}
               homeworldName={this.props.appState.person.homeworldName}
+              vehicleNames={this.props.appState.person.vehicleNames}
             />
           </Col>
         </Row>
