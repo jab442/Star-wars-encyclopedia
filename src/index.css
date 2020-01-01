@@ -20,8 +20,13 @@ code {
 
 
 }
+#personComponentDiv{
+  overflow: auto;
+  height:500px
+}
 #spinnerDiv{
   height:30px;
+  
 }
 #personImageDiv{
   height:500px;

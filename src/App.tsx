@@ -6,7 +6,7 @@ import div from './PersonComponent'
 import { observer } from 'mobx-react';
 import State from './State'
 import { PushSpinner } from "react-spinners-kit";
-import { Container, Row, Col, Button } from 'reactstrap'
+import { Row, Col, Button } from 'reactstrap'
 import PersonComponent from './PersonComponent';
 
 
@@ -88,7 +88,7 @@ class App extends React.Component<{ appState: State }, {}> {
 
   private extractVehicleAttributes(attributeArray: string[], p: IPerson) {
     let vehicleNames: string[] = [];
-    attributeArray.map((v) => {
+    attributeArray.forEach((v) => {
       fetch(v).then(res => res.json())
         .then(res => {
           vehicleNames.push(res.name);
@@ -99,7 +99,7 @@ class App extends React.Component<{ appState: State }, {}> {
   }
   private extractStarshipAttributes(attributeArray: string[], p: IPerson) {
     let startshipNames: string[] = [];
-    attributeArray.map((v) => {
+    attributeArray.forEach((v) => {
       fetch(v).then(res => res.json())
         .then(res => {
           startshipNames.push(res.name);
@@ -110,7 +110,7 @@ class App extends React.Component<{ appState: State }, {}> {
   }
   private extractFilmAttributes(attributeArray: string[], p: IPerson) {
     let filmNames: string[] = [];
-    attributeArray.map((v) => {
+    attributeArray.forEach((v) => {
       fetch(v).then(res => res.json())
         .then(res => {
           debugger;
@@ -149,7 +149,7 @@ class App extends React.Component<{ appState: State }, {}> {
               <img id="personImage" src={this.props.appState.imgURL} />
             </div>
           </Col>
-          <Col className="col-sm-4">
+          <Col className="col-sm-4" id="personComponentDiv">
             <PersonComponent name={this.props.appState.person.name}
               gender={this.props.appState.person.gender}
               hair_color={this.props.appState.person.hair_color}
