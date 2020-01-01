@@ -95,7 +95,7 @@ class App extends React.Component<{ appState: State }, {}> {
           p.vehicleNames = vehicleNames;
           this.props.appState.person = p;
         });
-    }); 
+    });
   }
   private extractStarshipAttributes(attributeArray: string[], p: IPerson) {
     let startshipNames: string[] = [];
@@ -113,7 +113,6 @@ class App extends React.Component<{ appState: State }, {}> {
     attributeArray.forEach((v) => {
       fetch(v).then(res => res.json())
         .then(res => {
-          debugger;
           filmNames.push(res.title);
           p.filmNames = filmNames;
           this.props.appState.person = p;
@@ -149,20 +148,22 @@ class App extends React.Component<{ appState: State }, {}> {
               <img id="personImage" src={this.props.appState.imgURL} />
             </div>
           </Col>
-          <Col className="col-sm-4" id="personComponentDiv">
-            <PersonComponent name={this.props.appState.person.name}
-              gender={this.props.appState.person.gender}
-              hair_color={this.props.appState.person.hair_color}
-              mass={this.props.appState.person.mass}
-              height={this.props.appState.person.height}
-              skin_color={this.props.appState.person.skin_color}
-              eye_color={this.props.appState.person.eye_color}
-              birth_year={this.props.appState.person.birth_year}
-              homeworldName={this.props.appState.person.homeworldName}
-              vehicleNames={this.props.appState.person.vehicleNames}
-              filmNames={this.props.appState.person.filmNames}
-              starshipNames={this.props.appState.person.starshipNames}
-            />
+          <Col className="col-sm-4" >
+            <div id="personComponentDiv">
+              <PersonComponent name={this.props.appState.person.name}
+                gender={this.props.appState.person.gender}
+                hair_color={this.props.appState.person.hair_color}
+                mass={this.props.appState.person.mass}
+                height={this.props.appState.person.height}
+                skin_color={this.props.appState.person.skin_color}
+                eye_color={this.props.appState.person.eye_color}
+                birth_year={this.props.appState.person.birth_year}
+                homeworldName={this.props.appState.person.homeworldName}
+                vehicleNames={this.props.appState.person.vehicleNames}
+                filmNames={this.props.appState.person.filmNames}
+                starshipNames={this.props.appState.person.starshipNames}
+              />
+            </div>
           </Col>
         </Row>
         <Row>
