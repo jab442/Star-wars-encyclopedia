@@ -5,7 +5,7 @@ import IPerson from './IPerson';
 
 const PersonComponent: React.SFC<IPerson> = (props) => {
   return (
-    <div>
+    <div className="personComponent">
       <div> <strong>Gender: </strong>{props.gender}</div>
       <div> <strong>Birth year: </strong>{props.birth_year}</div>
       <div> <strong>Mass: </strong>{props.mass}</div>
@@ -21,13 +21,13 @@ const PersonComponent: React.SFC<IPerson> = (props) => {
         }</ul>) : "n/a"}
       </div>
       <div>
-        <strong>Starship names: </strong>
+        <strong>Starships: </strong>
         {(props.starshipNames != null && props.starshipNames.length > 0) ? (<ul>{
           props.starshipNames?.map((n, i) => <li key={i}>{n}</li>)
         }</ul>) : "n/a"}
       </div>
       <div>
-        <strong>Film names: </strong>
+        <strong>Films: </strong>
         {(props.filmNames != null && props.filmNames.length > 0) ? (<ul>{
           props.filmNames?.map((n, i) => <li key={i}>{n}</li>)
         }</ul>) : "n/a"}

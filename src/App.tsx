@@ -6,7 +6,7 @@ import div from './PersonComponent'
 import { observer } from 'mobx-react';
 import State from './State'
 import { PushSpinner } from "react-spinners-kit";
-import { Row, Col, Button } from 'reactstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import PersonComponent from './PersonComponent';
 
 

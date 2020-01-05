@@ -21,7 +21,7 @@ code {
 
 }
 #personComponentDiv{
-  overflow-y: scroll;
+  overflow-y: auto;
   height:500px
 }
 #spinnerDiv{
